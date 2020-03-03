@@ -59,7 +59,7 @@ epel_enabled: false
 
 # DNS configuration.
 # Kubernetes cluster name, also will be used as DNS domain
-cluster_name: cluster.local
+cluster_name: perf.lokal
 # Subdomains of DNS domain to be resolved via /etc/resolv.conf for hostnet pods
 ndots: 2
 # Can be coredns, coredns_dual, manual, or none
@@ -266,7 +266,7 @@ docker_plugins: []
 etcd_kubeadm_enabled: false
 
 # Containerd options
-containerd_use_systemd_cgroup: false
+containerd_use_systemd_cgroup: true:q
 
 # Settings for containerized control plane (etcd/kubelet/secrets)
 # deployment type for legacy etcd mode
@@ -359,7 +359,7 @@ kubelet_rotate_certificates: true
 kube_feature_gates: []
 
 # Enable kubeadm experimental control plane
-kubeadm_control_plane: false
+kubeadm_control_plane: true
 
 # Local volume provisioner storage classes
 # Levarages Ansibles string to Python datatype casting. Otherwise the dict_key isn't substituted

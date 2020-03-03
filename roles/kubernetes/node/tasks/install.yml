@@ -1,6 +1,10 @@
 ---
+- name: Install rsync
+  yum:
+    name: rsync
+    state: present
+
 - name: install | Copy kubeadm binary from download dir
-  synchronize:
     src: "{{ local_release_dir }}/kubeadm-{{ kubeadm_version }}-{{ image_arch }}"
     dest: "{{ bin_dir }}/kubeadm"
     compress: no
