@@ -1,13 +1,13 @@
 ## Prerequisite
-Open port:
+# Open port:
 - 10250/tcp (kubelet API)
 - 10251-10252/tcp (kube-scheduler, kube-controller-manager *only master node*)
 - 6443/tcp (kube-apiserver)
 - 2379-2380/tcp (etcd)
 - 179/tcp (calico)
 
-Disable SELinux
-Set Hostname in inventory/kubeklaster/hosts.ini
+# Disable SELinux
+# Set Hostname in inventory/kubeklaster/hosts.ini
 
 #### Usage
 
