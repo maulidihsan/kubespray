@@ -1,4 +1,5 @@
 ## Prerequisite
+##### yum update
 ##### Open port:
 - 10250/tcp (kubelet API)
 - 10251-10252/tcp (kube-scheduler, kube-controller-manager *only master node*)
@@ -9,8 +10,9 @@
 ##### Disable SELinux
 ##### Set Hostname in inventory/kubeklaster/hosts.ini
 
-#### Usage
+## Usage
 
+#### Create Cluster
 ```ShellSession
 # Install dependencies from ``requirements.txt``
 sudo pip install -r requirements.txt
@@ -21,6 +23,20 @@ cat inventory/kubeklaster/group_vars/k8s-cluster/k8s-cluster.yml
 
 # Deploy Kubespray with Ansible Playbook - run the playbook as root
 ansible-playbook -i inventory/kubeklaster/hosts.ini -k -u user --become --become-user=root cluster.yml
+```
+
+#### Adding Node
+```ShellSession
+# Add new node to ``inventory/kubeklaster/hosts.ini``
+cat inventory/kubeklaster/hosts.ini
+
+# Deploy Kubespray
+ansible-playbook -i inventory/kubeklaster/hosts.ini -k -u user --become --become-user=root scale.yml
+```
+
+#### Removing Node
+```ShellSession
+ansible-playbook -i inventory/kubeklaster/hosts.ini -k -u user --become --become-user=root remove-node.yml --extra-vars "node=nodename1,nodename2"
 ```
 
 ## Network Plugins
